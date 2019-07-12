@@ -1,12 +1,13 @@
-// pages/home/home.js
+// pages/edit/edit.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    current_filter: '1977',
+    current_filter: 'original',
     filters: [
+      'original',
       '1977',
       'aden',
       'amaro',

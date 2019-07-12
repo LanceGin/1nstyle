@@ -1,4 +1,4 @@
-<!--pages/home/home.wxml-->
+<!--pages/edit/edit.wxml-->
 <view class='container'>
   <view class='image-box'>
     <image class="{{ 'filter-' + current_filter }}" src='../../demo.png'></image>
