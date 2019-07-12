@@ -11,7 +11,8 @@ Page({
     // tab切换  
     currentTab: 0,
     // 当前滤镜
-    current_filter: 'original'
+    current_filter: 'original',
+    choosed_image_path: '../../demo.png'
   },
 
   /**
@@ -113,4 +114,25 @@ Page({
       }
     })
   },
+  // 从相册选取
+  choosePhoto() {
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['compressed'],
+      sourceType: ['album'],
+      success(res) {
+        console.log(res);
+        // tempFilePath可以作为img标签的src属性显示图片
+        const image_path = res.tempFilePaths[0]
+        wx.getImageInfo({
+          src: image_path,
+          success(res) {
+            wx.navigateTo({
+              url: '/pages/edit/edit?imagePath=' + res.path
+            })
+          }
+        })
+      }
+    })
+  }
 })
