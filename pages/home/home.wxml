@@ -1,0 +1,6 @@
+<!--pages/home/home.wxml-->
+<view class="container">
+  <view>
+    <text>hello world</text>
+  </view>
+</view>
