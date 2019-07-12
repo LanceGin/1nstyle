@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    current_image: '',
     current_filter: 'original',
     filters: [
       'original',
@@ -56,7 +57,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const imagePath = options.imagePath
+    this.setData({
+      current_image: imagePath
+    })
   },
 
   /**

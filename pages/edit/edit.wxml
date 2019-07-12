@@ -1,13 +1,13 @@
 <!--pages/edit/edit.wxml-->
 <view class='container'>
   <view class='image-box'>
-    <image class="{{ 'filter-' + current_filter }}" src='../../demo.png'></image>
+    <image class="{{ 'filter-' + current_filter }}" src="{{ current_image }}"></image>
   </view>
   <view class='out'>
     <scroll-view class="filter-list" scroll-x>
       <view class="filter-box" wx:for="{{ filters }}" wx:for-item="filter" wx:key="idx" data-filter="{{ filter }}" bindtap='switchFilter'>
         <view class="img {{ 'filter-' + filter }}">
-          <image mode='scaleToFill' src='../../demo.png'></image>
+          <image mode='scaleToFill' src="{{ current_image }}"></image>
         </view>
         <view class='title'>
           <text>{{ filter }}</text>
