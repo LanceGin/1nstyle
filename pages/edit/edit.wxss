@@ -1,7 +1,39 @@
 /* pages/edit/edit.wxss */
+.swiper-tab {
+  height: 10vh;
+  width: 100vw;
+  margin: auto;
+  text-align: center;
+  line-height: 10vh;
+  border-bottom: 1px #eee solid;
+  position: fixed;
+  z-index: 999;
+  background: #ffffff;
+  overflow: scroll;
+  bottom: 0;
+}  
+.swiper-tab .button-hover {
+  background: transparent;
+}
+.swiper-tab button {
+  overflow: initial;
+  background: transparent;
+}
+.swiper-tab-list {
+  font-size: 30rpx;
+  font-weight: bold;
+  display: inline-block;  
+  width: 45vw;  
+  color: #000;
+}
 .container .image-box image {
   width: 100%;
   height: 100vw;
+}
+.container .image-box canvas {
+  width: 100%;
+  height: 100vw;
+  position: absolute;
 }
 
 .container .out {
