@@ -8,6 +8,7 @@ Page({
     current_image: '',
     current_filter: 'original',
     filters: [
+      { name: "Original", class: "original" },
       { name: "1977", class: "_1977" },
       { name: "Aden", class: "aden" },
       { name: "Amaro", class: "amaro" },
@@ -102,6 +103,43 @@ Page({
     const target = e.currentTarget.dataset.filter
     this.setData({
       current_filter: target
+    })
+  },
+  /**
+   * 保存本地
+   */
+  saveTo: function (e) {
+    const self = this
+    const ctx = wx.createCanvasContext('saveCanvas', this)
+    // 获取系统信息
+    wx.getSystemInfo({
+      success: function (res) {
+          const winWidth = res.windowWidth
+          ctx.drawImage(self.data.current_image, 0, 0, winWidth, winWidth)
+          ctx.draw(false, () => {
+            self.canvasToTempFilePath({
+              canvasId: 'saveCanvas'
+            }, this).then((res) => {
+              const file_path = res.tempFilePath
+              console.log(111, file_path)
+              // wx.saveImageToPhotosAlbum({
+              //   filePath: file_path,
+              //   success: function(res) {
+              //     console.log(1111)
+              //   }
+              // })
+            })
+          })
+      }
+    })
+  },
+  canvasToTempFilePath: function (option, context) {
+    return new Promise((resolve, reject) => {
+      wx.canvasToTempFilePath({
+        ...option,
+        success: resolve,
+        fail: reject,
+      }, context)
     })
   }
 })

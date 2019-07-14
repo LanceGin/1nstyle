@@ -5,7 +5,7 @@
 </view>
 <view class='container'>
   <view class='image-box'>
-    <canvas canvas-id="saveCanvas" class="{{ current_filter }}"></canvas>
+    <canvas hidden canvas-id="saveCanvas" class="{{ current_filter }}"></canvas>
     <image mode="aspectFill" class="{{ current_filter }}" src="{{ current_image }}"></image>
   </view>
   <view class='out'>
